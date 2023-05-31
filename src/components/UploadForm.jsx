@@ -10,10 +10,33 @@ const UploadForm = ({ onImageUpload }) => {
     }
   };
 
+  const handleDragOver = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+  };
+
+  const handleDrop = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+  
+    const files = Array.from(event.dataTransfer.items)
+      .filter((item) => item.kind === 'file')
+      .map((item) => item.getAsFile());
+  
+    if (files.length > 0) {
+      onImageUpload(files[0]);
+    }
+  };
+  
+
   return (
     <div className="mb-4 relative">
       <label htmlFor="fileInput" className="cursor-pointer">
-        <div className="border-dashed border-2 border-gray-400 rounded-lg p-4">
+        <div
+          className="h-96 flex items-center justify-center border-dashed border-2 border-gray-400 rounded-lg p-4"
+          onDragOver={handleDragOver}
+          onDrop={handleDrop}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="mx-auto h-6 w-6 text-gray-400"
@@ -40,7 +63,6 @@ const UploadForm = ({ onImageUpload }) => {
         />
       </label>
     </div>
-
   );
 };
 
