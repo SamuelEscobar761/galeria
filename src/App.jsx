@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Gallery from './components/Gallery';
 import UploadForm from './components/UploadForm';
 import ImageDetails from './components/ImageDetails';
+import Header from './components/Header';
 
 function App() {
   const [images, setImages] = useState(() => {
@@ -57,6 +58,7 @@ function App() {
 
   return (
     <div className="mx-auto p-4">
+      <Header/>
       {!selectedImage ? (
         <>
           <UploadForm onImageUpload={handleImageUpload} />

@@ -1,5 +1,4 @@
 import React from 'react';
-import { useState } from 'react';
 
 const ImageDetails = ({ image, onNameChange, handleDeleteImage, setSelectedImage, imageName, setImageName }) => {
   return (
