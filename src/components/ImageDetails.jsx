@@ -26,18 +26,19 @@ const ImageDetails = ({ image, onNameChange, handleDeleteImage, setSelectedImage
           </svg>
         </button>
       </div>
-      <div className="w-1/6 flex flex-col">
-        <div className="mb-2">
+      <div className="w-1/6 flex flex-col bg-gray-200 p-2">
+        <div className="mb-2 flex items-center">
+        <p>Nombre:</p>
           <input
             type="text"
             id="name"
             value={imageName}
             onChange={(event) => setImageName(event.target.value)}
-            className="border p-2"
+            className="border p-2 bg-gray-200"
           />
 
         </div>
-        <p className="mb-2">Last modified: {image.date}</p>
+        <p className="mb-2">Ultima modificacion: {image.date}</p>
         <button
           onClick={handleDeleteImage}
           className="mb-2 w-52 rounded-md px-3 py-1 bg-red-500 text-white hover:bg-red-600 focus:bg-red-700 transition-colors duration-300"
