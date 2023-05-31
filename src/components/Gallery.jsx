@@ -28,7 +28,6 @@ const Gallery = ({ images, onImageClick }) => {
         ))}
       </div>
     </div>
-    
   );
 };
 

@@ -54,7 +54,6 @@ function App() {
     });
     setSelectedImage(null);
   };
-  
 
   return (
     <div className="mx-auto p-4">

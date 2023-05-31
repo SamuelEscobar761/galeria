@@ -32,6 +32,7 @@ const UploadForm = ({ onImageUpload }) => {
   return (
     <div className="mb-4 relative">
       <label htmlFor="fileInput" className="cursor-pointer">
+        <span className="text-gray-600">Arrastra una imagen o haz clic para seleccionar un archivo</span>
         <div
           className="h-96 flex items-center justify-center border-dashed border-2 border-gray-400 rounded-lg p-4"
           onDragOver={handleDragOver}
@@ -52,7 +53,7 @@ const UploadForm = ({ onImageUpload }) => {
             />
           </svg>
         </div>
-        <span className="text-gray-600">Arrastra una imagen o haz clic para seleccionar un archivo</span>
+        
         <input
           id="fileInput"
           type="file"
