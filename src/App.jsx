@@ -4,7 +4,10 @@ import UploadForm from './components/UploadForm';
 import ImageDetails from './components/ImageDetails';
 
 function App() {
-  const [images, setImages] = useState([]);
+  const [images, setImages] = useState(() => {
+    const storedImages = JSON.parse(localStorage.getItem('images'));
+    return storedImages || [];
+  });
   const [selectedImage, setSelectedImage] = useState(null);
 
   useEffect(() => {
@@ -12,7 +15,7 @@ function App() {
     if (storedImages) {
       setImages(storedImages);
     }
-  }, []);
+  }, [localStorage.getItem('images')]);
 
   useEffect(() => {
     localStorage.setItem('images', JSON.stringify(images));
