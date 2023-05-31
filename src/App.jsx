@@ -9,13 +9,7 @@ function App() {
     return storedImages || [];
   });
   const [selectedImage, setSelectedImage] = useState(null);
-
-  useEffect(() => {
-    const storedImages = JSON.parse(localStorage.getItem('images'));
-    if (storedImages) {
-      setImages(storedImages);
-    }
-  }, [localStorage.getItem('images')]);
+  const [imageName, setImageName] = useState("");
 
   useEffect(() => {
     localStorage.setItem('images', JSON.stringify(images));
@@ -34,27 +28,49 @@ function App() {
     reader.readAsDataURL(file);
   };
 
+  const handleDeleteImage = (selectedImage) => {
+    setImages(prevImages => prevImages.filter(img => img !== selectedImage));
+    setSelectedImage(null);
+  };
+
   const handleImageClick = (image) => {
     setSelectedImage(image);
+    setImageName(image.name.split('.')[0])
   };
 
   const handleNameChange = (newName) => {
-    setSelectedImage((prevImage) => ({
-      ...prevImage,
-      name: newName,
-      date: new Date().toLocaleDateString(),
-    }));
+    setImages((prevImages) => {
+      const updatedImages = prevImages.map((img) => {
+        if (img === selectedImage) {
+          return {
+            ...img,
+            name: newName,
+            date: new Date().toLocaleDateString(),
+          };
+        }
+        return img;
+      });
+      return updatedImages;
+    });
+    setSelectedImage(null);
   };
+  
 
   return (
-    <div className="max-w-xl mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Image Gallery</h1>
-      <UploadForm onImageUpload={handleImageUpload} />
-      <Gallery images={images} onImageClick={handleImageClick} />
-      {selectedImage && (
+    <div className="mx-auto p-4">
+      {!selectedImage ? (
+        <>
+          <UploadForm onImageUpload={handleImageUpload} />
+          <Gallery images={images} onImageClick={handleImageClick} />
+        </>
+      ):(
         <ImageDetails
           image={selectedImage}
           onNameChange={handleNameChange}
+          handleDeleteImage={() => {handleDeleteImage(selectedImage)}}
+          setSelectedImage={setSelectedImage}
+          imageName={imageName}
+          setImageName={setImageName}
         />
       )}
     </div>

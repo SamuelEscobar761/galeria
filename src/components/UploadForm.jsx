@@ -11,15 +11,36 @@ const UploadForm = ({ onImageUpload }) => {
   };
 
   return (
-    <div className="mb-4">
-      <input
-        type="file"
-        accept="image/*"
-        ref={fileInputRef}
-        onChange={handleFileChange}
-        className="border p-2"
-      />
+    <div className="mb-4 relative">
+      <label htmlFor="fileInput" className="cursor-pointer">
+        <div className="border-dashed border-2 border-gray-400 rounded-lg p-4">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="mx-auto h-6 w-6 text-gray-400"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+            />
+          </svg>
+        </div>
+        <span className="text-gray-600">Arrastra una imagen o haz clic para seleccionar un archivo</span>
+        <input
+          id="fileInput"
+          type="file"
+          accept="image/*"
+          ref={fileInputRef}
+          onChange={handleFileChange}
+          className="hidden"
+        />
+      </label>
     </div>
+
   );
 };
 
