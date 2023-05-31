@@ -32,7 +32,7 @@ npm install
 npm run dev
 
 
-2. La aplicación se abrirá automáticamente en tu navegador predeterminado. Si no se abre, puedes acceder a ella en [http://localhost:3000](http://localhost:3000).
+2. La aplicación se abrirá automáticamente en tu navegador predeterminado. Si no se abre, puedes acceder a ella en [http://localhost:5173](http://localhost:5173).
 
 3. En la página de inicio, puedes arrastrar y soltar una imagen o hacer clic para seleccionar un archivo. La imagen se cargará y se mostrará en la lista de las últimas imágenes subidas y en la galería.
 
