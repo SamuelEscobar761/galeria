@@ -20,10 +20,10 @@ const Gallery = ({ images, onImageClick }) => {
         {images.map((image, index) => (
           <div
             key={index}
-            className="w-1/5 px-2 mb-4"
+            className="px-1 mb-4"
             onClick={() => onImageClick(image)}
           >
-            <img src={image.src} alt={image.name} className="w-full" />
+            <img src={image.src} alt={image.name} className='w-20 h-20 object-cover'/>
           </div>
         ))}
       </div>

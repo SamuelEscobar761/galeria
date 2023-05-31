@@ -6,7 +6,7 @@ const ImageDetails = ({ image, onNameChange, handleDeleteImage, setSelectedImage
   
   return (
     <div className="flex mt-4 relative">
-      <div className="w-3/5 pr-4">
+      <div className="w-auto pr-4">
         <img src={image.src} alt={image.name} className="w-full" onClick={() => setSelectedImage(null)} />
         <button
           onClick={() => setSelectedImage(null)}
@@ -26,7 +26,7 @@ const ImageDetails = ({ image, onNameChange, handleDeleteImage, setSelectedImage
           </svg>
         </button>
       </div>
-      <div className="w-2/5 flex flex-col">
+      <div className="w-1/6 flex flex-col">
         <div className="mb-2">
           <input
             type="text"
@@ -40,13 +40,13 @@ const ImageDetails = ({ image, onNameChange, handleDeleteImage, setSelectedImage
         <p className="mb-2">Last modified: {image.date}</p>
         <button
           onClick={handleDeleteImage}
-          className="mb-2 rounded-md px-3 py-1 bg-red-500 text-white hover:bg-red-600 focus:bg-red-700 transition-colors duration-300"
+          className="mb-2 w-52 rounded-md px-3 py-1 bg-red-500 text-white hover:bg-red-600 focus:bg-red-700 transition-colors duration-300"
         >
           Eliminar
         </button>
         <button
           onClick={() => onNameChange(imageName)}
-          className="mb-2 rounded-md px-3 py-1 bg-blue-500 text-white hover:bg-sky-400 focus:bg-blue-700 transition-colors duration-300"
+          className="mb-2 w-52 rounded-md px-3 py-1 bg-blue-500 text-white hover:bg-sky-400 focus:bg-blue-700 transition-colors duration-300"
         >
           Guardar Cambios
         </button>
